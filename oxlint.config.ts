@@ -98,21 +98,13 @@ export default defineConfig({
       { rootPath: "/src/", alias: { value: "@", withSlash: true } },
     ],
     "fsd/no-public-api-sidestep": "error",
-    // В v1.2.1 правило сравнивает имя слоя с ["model","api","lib"],
-    // поэтому задаём слои явно; "^\\./" — публичный API (index.ts) сам
-    // импортирует ./ui/*, это легитимно
-    "fsd/no-ui-in-business-logic": [
-      "warn",
-      {
-        rootPath: "/src/",
-        alias: { value: "@", withSlash: true },
-        businessLogicLayers: ["entities", "shared", "features", "widgets"],
-        // "features" не включаем: импорты через /features/* уже
-        // перехватывает fsd/forbidden-imports
-        uiLayers: ["ui", "widgets"],
-        ignoreImportPatterns: ["^\\./"],
-      },
-    ],
+    // v1.2.1 сравнивает businessLogicLayers только с первым сегментом пути
+    // (слоем: widgets/entities/...), а не с сегментом model/api/lib: дефолт
+    // ["model","api","lib"] мёртв, а любой непустой список слоёв даёт ложные
+    // срабатывания на */ui/*-файлах (слой содержится и у ui-сегмента).
+    // Выключено до появления сегментной гранулярности; запрет model→ui
+    // страхует code review
+    "fsd/no-ui-in-business-logic": "off",
 
     /* === TAILWIND CSS (jsPlugins: eslint-plugin-tailwindcss) === */
     "tailwindcss/no-contradicting-classname": "error",
