@@ -3,13 +3,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 
 import { cn } from "@/shared/lib/utils";
-import { TooltipProvider } from "@/shared/ui";
 
 import "./globals.css";
-import { SidebarInset, SidebarProvider } from "@/shared/ui/sidebar";
-import { HeaderEntry } from "@/widgets/root/header";
-import { RootSidebarEntry } from "@/widgets/root/root-sidebar";
-
 import { ThemeProvider } from "./providers/theme.provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -53,19 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <TooltipProvider>
-              <RootSidebarEntry />
-            </TooltipProvider>
-
-            <SidebarInset>
-              <HeaderEntry />
-              <div className="flex flex-1 flex-col gap-4 p-4">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">{children}</div>
-                <div className="min-h-screen flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-              </div>
-            </SidebarInset>
-          </SidebarProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>
