@@ -1,8 +1,7 @@
-import { VersionSwitcher } from "@/widgets/root/root-sidebar/ui/version-switcher";
-
 import { data } from "../model/const";
 import { RootSidebar } from "./RootSidebar";
 import { RootSidebarMenu } from "./RootSidebarMenu";
+import { VersionSwitcher } from "./version-switcher";
 
 export const RootSidebarEntry = () => {
   return (
