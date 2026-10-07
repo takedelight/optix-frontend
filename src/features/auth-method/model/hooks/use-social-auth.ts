@@ -1,7 +1,6 @@
-// shared/auth/model/hooks/use-social-auth.ts
 import { useState } from "react";
 
-import { authClient } from "@/shared/auth";
+import { signIn } from "@/shared/auth";
 import { APP_URL } from "@/shared/const";
 import { toast } from "@/shared/ui";
 
@@ -14,7 +13,7 @@ export const useSocialAuth = () => {
     setIsLoading(true);
 
     try {
-      const { error } = await authClient.signIn.social({
+      const { error } = await signIn.social({
         provider,
         callbackURL: APP_URL,
       });
