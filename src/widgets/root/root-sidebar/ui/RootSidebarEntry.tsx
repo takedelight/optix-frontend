@@ -1,5 +1,6 @@
 import { data } from "../model/const";
 import { RootSidebar } from "./RootSidebar";
+import { RootSidebarFooter } from "./RootSidebarFooter";
 import { RootSidebarMenu } from "./RootSidebarMenu";
 import { VersionSwitcher } from "./version-switcher";
 
@@ -11,8 +12,12 @@ export const RootSidebarEntry = () => {
       </RootSidebar.RootSidebarHeader>
 
       <RootSidebar.RootSidebarContent>
-        <RootSidebarMenu data={data} />
+        <RootSidebarMenu />
       </RootSidebar.RootSidebarContent>
+
+      <RootSidebar.RootSidebarFooter>
+        <RootSidebarFooter />
+      </RootSidebar.RootSidebarFooter>
     </RootSidebar>
   );
 };

@@ -24,7 +24,7 @@ export const RootSidebarContent = ({ children }: ComponentProps<typeof BaseSideb
 };
 
 export const RootSidebarFooter = ({ children }: ComponentProps<typeof BaseSidebar>) => {
-  return <BaseSidebarFooter>{children}</BaseSidebarFooter>;
+  return <BaseSidebarFooter className="border-t px-0">{children}</BaseSidebarFooter>;
 };
 
 export const RootSidebar = Object.assign(Sidebar, {

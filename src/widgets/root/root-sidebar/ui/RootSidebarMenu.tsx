@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -7,13 +9,9 @@ import {
   SidebarMenuButton,
 } from "@/shared/ui";
 
-import type { SidebarData } from "../model/const";
+import { data } from "../model/const";
 
-interface RootSidebarMenuProps {
-  data: SidebarData;
-}
-
-export const RootSidebarMenu = ({ data }: RootSidebarMenuProps) => {
+export const RootSidebarMenu = () => {
   return (
     <>
       {data.navMain.map((group) => {
@@ -35,7 +33,7 @@ export const RootSidebarMenu = ({ data }: RootSidebarMenuProps) => {
                       <SidebarMenuButton
                         isActive={subItem.isActive}
                         tooltip={subItem.title}
-                        render={<a href={subItem.url} aria-label={subItem.title} />}
+                        render={<Link href={subItem.url} aria-label={subItem.title} />}
                       >
                         {SubItemIcon && <SubItemIcon className="size-4 shrink-0" />}
                         <span className="truncate">{subItem.title}</span>

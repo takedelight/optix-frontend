@@ -9,16 +9,20 @@ import {
   RiCommandLine,
   RiExchangeLine,
   RiFolderLine,
+  RiGithubLine,
   RiHardDrive2Line,
   RiHistoryLine,
   RiImageEditLine,
   RiKey2Line,
   RiLockPasswordLine,
+  RiNotificationLine,
   RiPaintBrushLine,
   RiPulseLine,
   RiRefreshLine,
+  RiRobot2Line,
   RiShieldFlashLine,
   RiTerminalBoxLine,
+  RiToolsLine,
   RiUploadCloud2Line,
   RiWebhookLine,
 } from "@remixicon/react";
@@ -157,3 +161,26 @@ export const data = {
     },
   ],
 };
+
+export const FOOTER_ITEMS = [
+  {
+    title: "GitHub",
+    url: "https://github.com/",
+    icon: RiGithubLine,
+  },
+  {
+    title: "Tools",
+    url: "/tools",
+    icon: RiToolsLine,
+  },
+  {
+    title: "Notifications",
+    url: "/notifications",
+    icon: RiNotificationLine,
+  },
+  {
+    title: "MCP",
+    url: "/mcp",
+    icon: RiRobot2Line,
+  },
+];
