@@ -1,11 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import { AuthMethodEntry } from "@/features/auth-method";
+import { authClient } from "@/shared/auth";
+import { LinkButton, Show } from "@/shared/ui";
 
 import { LandingHeader } from "./LandingHeader";
 
 export const LandingHeaderEntry = () => {
+  const { data: session } = authClient.useSession();
+
+  const isAuthenticated = !!session;
+
   return (
     <LandingHeader>
       <LandingHeader.LandingHeaderLeftSide>
@@ -16,7 +24,11 @@ export const LandingHeaderEntry = () => {
       </LandingHeader.LandingHeaderLeftSide>
 
       <LandingHeader.LandingHeaderRightSide>
-        <AuthMethodEntry />
+        <Show when={isAuthenticated} fallback={<AuthMethodEntry />}>
+          <LinkButton size="lg" href="/app">
+            Go to App
+          </LinkButton>
+        </Show>
       </LandingHeader.LandingHeaderRightSide>
     </LandingHeader>
   );
