@@ -1,4 +1,4 @@
-import { ThemeToggleEntry } from "@/features/theme-toggle";
+import { UserDropdownEntry } from "@/features/user-dropdown";
 import { SidebarTrigger, Separator } from "@/shared/ui";
 
 import { Header } from "./Header";
@@ -15,7 +15,7 @@ export const HeaderEntry = () => {
       </Header.HeaderLeftSide>
 
       <Header.HeaderRightSide>
-        <ThemeToggleEntry />
+        <UserDropdownEntry />
       </Header.HeaderRightSide>
     </Header>
   );

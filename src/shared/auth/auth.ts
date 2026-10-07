@@ -11,3 +11,5 @@ export const authClient = createAuthClient({
   },
   plugins: [jwtClient()],
 });
+
+export const { useSession, getSession, signIn, signOut, signUp, token, jwks, $Infer } = authClient;

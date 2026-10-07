@@ -12,3 +12,4 @@ export * from "./skeleton";
 export * from "./tooltip";
 export * from "./show";
 export * from "./toast";
+export * from './avatar'
