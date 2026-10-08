@@ -1,17 +1,22 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuItem,
   SidebarMenuButton,
+  SidebarMenuItem,
 } from "@/shared/ui";
 
 import { data } from "../model/const";
 
 export const RootSidebarMenu = () => {
+  const pathname = usePathname();
+
   return (
     <>
       {data.navMain.map((group) => {
@@ -27,11 +32,14 @@ export const RootSidebarMenu = () => {
               <SidebarMenu>
                 {group.items.map((subItem) => {
                   const SubItemIcon = subItem.icon;
+                  const isActive =
+                    pathname === subItem.url ||
+                    (subItem.url !== "/" && pathname.startsWith(subItem.url));
 
                   return (
                     <SidebarMenuItem key={subItem.title}>
                       <SidebarMenuButton
-                        isActive={subItem.isActive}
+                        isActive={isActive}
                         tooltip={subItem.title}
                         render={<Link href={subItem.url} aria-label={subItem.title} />}
                       >

@@ -4,41 +4,29 @@ import {
   RiApps2Line,
   RiBarChartBoxLine,
   RiBookOpenLine,
-  RiCloudLine,
   RiCodeSSlashLine,
   RiCommandLine,
-  RiExchangeLine,
   RiFolderLine,
   RiGithubLine,
-  RiHardDrive2Line,
   RiHistoryLine,
-  RiImageEditLine,
   RiKey2Line,
-  RiLockPasswordLine,
   RiNotificationLine,
-  RiPaintBrushLine,
   RiPulseLine,
-  RiRefreshLine,
   RiRobot2Line,
-  RiShieldFlashLine,
   RiTerminalBoxLine,
   RiToolsLine,
-  RiUploadCloud2Line,
-  RiWebhookLine,
 } from "@remixicon/react";
 
 export interface NavSubItem {
   title: string;
   url: string;
   icon?: RemixiconComponentType;
-  isActive?: boolean;
 }
 
 export interface NavMainGroup {
   title: string;
   url: string;
   icon: RemixiconComponentType;
-  isActive?: boolean;
   items: NavSubItem[];
 }
 
@@ -47,109 +35,54 @@ export interface SidebarData {
   navMain: NavMainGroup[];
 }
 
-export const data = {
+export const data: SidebarData = {
   versions: ["1.0.0", "1.1.0-beta", "2.0.0-canary"],
   navMain: [
     {
       title: "Core Platform",
-      url: "/projects",
+      url: "/app",
       icon: RiApps2Line,
       items: [
         {
           title: "All Projects",
-          url: "/projects",
+          url: "/app",
           icon: RiFolderLine,
         },
         {
           title: "Usage & Limits",
-          url: "/usage",
+          url: "/app/usage",
           icon: RiBarChartBoxLine,
-          isActive: true,
         },
         {
           title: "Global API Keys",
-          url: "/api-keys",
+          url: "/app/api-keys",
           icon: RiKey2Line,
         },
         {
           title: "Audit Logs",
-          url: "/audit-logs",
+          url: "/app/audit-logs",
           icon: RiHistoryLine,
         },
       ],
     },
     {
-      title: "Integrations & Storage",
-      url: "/integrations",
-      icon: RiCloudLine,
-      items: [
-        {
-          title: "S3 Providers (MinIO / AWS)",
-          url: "/integrations/s3",
-          icon: RiHardDrive2Line,
-        },
-        {
-          title: "Cloudflare & CDN Edge",
-          url: "/integrations/cdn",
-          icon: RiShieldFlashLine,
-        },
-        {
-          title: "Webhooks & Events",
-          url: "/integrations/webhooks",
-          icon: RiWebhookLine,
-        },
-      ],
-    },
-    {
-      title: "Transformation API",
-      url: "/docs/api",
-      icon: RiImageEditLine,
-      items: [
-        {
-          title: "Presigned Uploads",
-          url: "/docs/api/uploads",
-          icon: RiUploadCloud2Line,
-        },
-        {
-          title: "On-the-fly Resize & Fit",
-          url: "/docs/api/transformations",
-          icon: RiExchangeLine,
-        },
-        {
-          title: "Formats (WebP / AVIF)",
-          url: "/docs/api/formats",
-          icon: RiPaintBrushLine,
-        },
-        {
-          title: "URL Signing (HMAC)",
-          url: "/docs/api/signatures",
-          icon: RiLockPasswordLine,
-        },
-        {
-          title: "Cache Invalidation",
-          url: "/docs/api/caching",
-          icon: RiRefreshLine,
-        },
-      ],
-    },
-    {
       title: "Developer Tools",
-      url: "/docs",
+      url: "/app/docs",
       icon: RiCodeSSlashLine,
       items: [
         {
           title: "Interactive Playground",
-          url: "/playground",
+          url: "/app/playground",
           icon: RiTerminalBoxLine,
         },
         {
           title: "TypeScript / React SDK",
-          url: "/docs/sdks",
+          url: "/app/docs/sdks",
           icon: RiBookOpenLine,
         },
         {
           title: "CLI & Direct Streaming",
-          url: "/docs/cli",
+          url: "/app/docs/cli",
           icon: RiCommandLine,
         },
         {
@@ -170,17 +103,17 @@ export const FOOTER_ITEMS = [
   },
   {
     title: "Tools",
-    url: "/tools",
+    url: "/app/tools",
     icon: RiToolsLine,
   },
   {
     title: "Notifications",
-    url: "/notifications",
+    url: "/app/notifications",
     icon: RiNotificationLine,
   },
   {
     title: "MCP",
-    url: "/mcp",
+    url: "/app/mcp",
     icon: RiRobot2Line,
   },
 ];
