@@ -7,6 +7,7 @@ import { cn } from "@/shared/lib";
 import "./globals.css";
 import { Toaster } from "@/shared/ui";
 
+import { ApolloProvider } from "./providers/apollo.provider";
 import { ThemeProvider } from "./providers/theme.provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -33,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ApolloProvider>{children}</ApolloProvider>
           <Toaster />
         </ThemeProvider>
       </body>
