@@ -9,7 +9,10 @@ export default defineConfig({
     "jsx-a11y",
     "unicorn",
     "oxc",
-    "react-perf",
+    // react-perf отключён: React Compiler (next.config.ts → reactCompiler)
+    // автоматически мемоизирует функции/объекты в пропсах, а сами срабатывания
+    // приходились только на идиомы библиотек (render у base-ui, Controller у RHF)
+    // и инлайн-колбэки в .map()
     "promise",
     "vitest",
   ],
