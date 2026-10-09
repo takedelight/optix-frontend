@@ -71,6 +71,9 @@ export default defineConfig({
     "import/no-anonymous-default-export": "warn",
 
     /* === REACT & HOOKS === */
+    // React Compiler сам мемоизирует value контекста и колбэки,
+    // ручные useMemo/useCallback не нужны
+    "react/jsx-no-constructed-context-values": "off",
     // Next.js использует automatic JSX runtime (React 17+), React в скоупе не нужен
     "react/react-in-jsx-scope": "off",
     "react/rules-of-hooks": "error",
