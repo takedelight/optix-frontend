@@ -25,17 +25,7 @@ const ProjectGridSkeleton = () => {
   );
 };
 
-const ProjectGridError = ({ message }: { message?: string }) => {
-  return (
-    <div className="flex flex-col items-center justify-center gap-1 rounded-xl border border-dashed py-16 text-center">
-      <p className="font-medium">Failed to load projects</p>
-      <p className="text-sm text-muted-foreground">{message ?? "Something went wrong"}</p>
-    </div>
-  );
-};
-
 export const ProjectGrid = Object.assign(ProjectGridRoot, {
   ProjectGridEmpty,
   ProjectGridSkeleton,
-  ProjectGridError,
 });

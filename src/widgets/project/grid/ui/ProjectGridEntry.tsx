@@ -7,10 +7,7 @@ import { useProjectGrid } from "../model/hooks/use-project-grid";
 import { ProjectGrid } from "./ProjectGrid";
 
 export const ProjectGridEntry = () => {
-  const { projects, loading, error } = useProjectGrid();
-
-  if (loading) return <ProjectGrid.ProjectGridSkeleton />;
-  if (error) return <ProjectGrid.ProjectGridError message={error} />;
+  const { projects } = useProjectGrid();
 
   return (
     <Show when={projects.length > 0} fallback={<ProjectGrid.ProjectGridEmpty />}>

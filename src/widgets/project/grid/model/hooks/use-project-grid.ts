@@ -1,7 +1,7 @@
 import { useProjects } from "@/entities/project";
 
 export const useProjectGrid = () => {
-  const { projects, loading, error } = useProjects();
+  const { projects } = useProjects();
 
-  return { projects, loading, error };
+  return { projects };
 };
