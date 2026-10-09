@@ -1,7 +1,9 @@
 export * from "./breadcrumb";
 export * from "./button";
 export * from "./card";
+export * from "./dialog";
 export * from "./dropdown-menu";
+export * from "./field";
 export * from "./input";
 export * from "./label";
 export * from "./link-button";
@@ -9,6 +11,7 @@ export * from "./separator";
 export * from "./sheet";
 export * from "./sidebar";
 export * from "./skeleton";
+export * from "./textarea";
 export * from "./tooltip";
 export * from "./show";
 export * from "./toast";

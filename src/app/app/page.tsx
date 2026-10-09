@@ -1,9 +1,11 @@
-export default function Home() {
-  return (
-    <>
-      <div className="aspect-video rounded-xl bg-muted/50" />
-      <div className="aspect-video rounded-xl bg-muted/50" />
-      <div className="aspect-video rounded-xl bg-muted/50" />
-    </>
-  );
+import type { Metadata } from "next";
+
+import { ProjectsPage } from "./projects/ui/projects-page";
+
+export const metadata: Metadata = {
+  title: "All Projects",
+};
+
+export default function ProjectsRoute() {
+  return <ProjectsPage />;
 }
