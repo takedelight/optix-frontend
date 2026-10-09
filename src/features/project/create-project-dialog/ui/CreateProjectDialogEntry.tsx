@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { useCreateProject } from "../model/hooks/use-create-project";
 import { CreateProjectDialog } from "./CreateProjectDialog";
 import { CreateProjectDialogFields } from "./CreateProjectDialogFields";
@@ -8,10 +10,13 @@ import { CreateProjectDialogHeader } from "./CreateProjectDialogHeader";
 import { CreateProjectDialogTrigger } from "./CreateProjectDialogTrigger";
 
 export const CreateProjectDialogEntry = () => {
-  const { control, formState } = useCreateProject();
+  const [open, setOpen] = useState(false);
+  const { control, formState, onSubmit } = useCreateProject({
+    onSuccess: () => setOpen(false),
+  });
 
   return (
-    <CreateProjectDialog>
+    <CreateProjectDialog open={open} onOpenChange={setOpen}>
       <CreateProjectDialogTrigger />
 
       <CreateProjectDialog.Content>
@@ -19,7 +24,7 @@ export const CreateProjectDialogEntry = () => {
           <CreateProjectDialogHeader />
         </CreateProjectDialog.Header>
 
-        <form className="flex flex-col gap-4">
+        <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <CreateProjectDialogFields control={control} errors={formState.errors} />
 
           <CreateProjectDialog.Footer>
