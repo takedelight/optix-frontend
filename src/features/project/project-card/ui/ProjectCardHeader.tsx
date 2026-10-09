@@ -2,6 +2,8 @@ import { RiMoreLine } from "@remixicon/react";
 import { cn } from "cn";
 import Link from "next/link";
 
+import type { ApiProject } from "@/entities/project";
+
 import { getInitials } from "@/entities/user";
 import {
   CardTitle,
@@ -16,10 +18,8 @@ import {
   Button,
 } from "@/shared/ui";
 
-import type { Project } from "../model/const/const";
-
 interface ProjectCardProps {
-  project: Project;
+  project: ApiProject;
 }
 
 export const ProjectCardHeader = ({ project }: ProjectCardProps) => {

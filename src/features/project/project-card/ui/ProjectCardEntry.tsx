@@ -1,4 +1,4 @@
-import type { Project } from "@/features/project/project-card/model/const/const";
+import type { ApiProject } from "@/entities/project";
 
 import { ProjectCard } from "./ProjectCard";
 import { ProjectCardContent } from "./ProjectCardContent";
@@ -6,7 +6,7 @@ import { ProjectCardFooter } from "./ProjectCardFooter";
 import { ProjectCardHeader } from "./ProjectCardHeader";
 
 interface ProjectCardProps {
-  project: Project;
+  project: ApiProject;
 }
 
 export const ProjectCardEntry = ({ project }: ProjectCardProps) => {
@@ -17,11 +17,11 @@ export const ProjectCardEntry = ({ project }: ProjectCardProps) => {
       </ProjectCard.Header>
 
       <ProjectCard.Content>
-        <ProjectCardContent project={project} />
+        <ProjectCardContent />
       </ProjectCard.Content>
 
       <ProjectCard.Footer>
-        <ProjectCardFooter {...project} />
+        <ProjectCardFooter status="active" updatedAt={project.createdAt} />
       </ProjectCard.Footer>
     </ProjectCard>
   );

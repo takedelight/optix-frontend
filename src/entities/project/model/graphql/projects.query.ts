@@ -1,7 +1,5 @@
 import { gql, type TypedDocumentNode } from "@apollo/client";
 
-import type { Project } from "@/features/project/project-card";
-
 export interface ApiProject {
   id: string;
   name: string;
@@ -30,17 +28,3 @@ export const PROJECTS_QUERY: TypedDocumentNode<ProjectsQueryData, Record<string,
     }
   }
 `;
-
-export const toCardProject = (api: ApiProject): Project => ({
-  id: api.id,
-  name: api.name,
-  slug: api.slug ?? api.id,
-  color: api.color ?? undefined,
-  ownerId: api.ownerId,
-  status: "active",
-  region: "-",
-  storageGb: 0,
-  transferGb: 0,
-  requests: 0,
-  updatedAt: api.createdAt,
-});
